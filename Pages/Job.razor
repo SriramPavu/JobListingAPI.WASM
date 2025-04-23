@@ -1,0 +1,99 @@
+﻿@page "/jobs"
+@inject HttpClient Http
+@using System.ComponentModel.DataAnnotations
+@using JobListingsApp.WASM.Models
+
+<div class="main-container">
+    <aside class="sidebar">
+        <h1 class="module-title">Avis Module.name</h1>
+        <nav class="menu">
+            @for (int i = 0; i < 8; i++)
+            {
+                <div class="menu-item">
+                    <span class="icon">📄</span>
+                    <span>Menu Item @i</span>
+                </div>
+            }
+        </nav>
+    </aside>
+
+    <main class="content">
+        <header class="header">
+            <input type="text" class="search-box" placeholder="Search for a page" />
+            <div class="header-right">
+                <button class="quick-create">+ Quick Create</button>
+                <div class="caption">
+                    Admin<br />
+                    <span class="caption-sub">Job Listings App</span>
+                </div>
+            </div>
+        </header>
+        <div class="toolbar">
+            <button class="btn">Save</button>
+            <button class="btn">+ New</button>
+            <button class="btn">Delete</button>
+            <button class="btn">Deactivate</button>
+        </div>
+
+        <div class="filters">
+            <select class="dropdown">
+                <option>All Jobs</option>
+            </select>
+            <input type="text" placeholder="Search jobs" class="filter-search" />
+        </div>
+
+        <h3 class="text-center mb-4">Job Listings</h3>
+
+        @if (jobs == null)
+        {
+            <p>Loading...</p>
+        }
+        else if (!jobs.Any())
+        {
+            <div class="no-data">
+                <p>No jobs found.</p>
+                <p>Create a new job to start managing your listings.</p>
+                <button class="create-btn">Create Job</button>
+            </div>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Job ID</th>
+                            <th>Title</th>
+                            <th>Company</th>
+                            <th>Location</th>
+                            <th>Salary</th>
+                            <th>Contact Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var job in jobs)
+                        {
+                            <tr>
+                                <td>@job.JobId</td>
+                                <td>@job.Title</td>
+                                <td>@job.Company</td>
+                                <td>@job.Location</td>
+                                <td>@job.salary</td>
+                                <td>@job.ContactEmail</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </main>
+</div>
+
+@code {
+    private List<JobData>? jobs;
+
+    protected override async Task OnInitializedAsync()
+    {
+        jobs = await Http.GetFromJsonAsync<List<JobData>>("https://localhost:4171/api/JobListings");
+    }
+}

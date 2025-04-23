@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobListingsApp.WASM", "JobListingsApp.WASM.csproj", "{31A5C312-EEE7-4F95-1A45-A33CFF6337BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobListingAPI", "..\JobListingAPI\JobListingAPI.csproj", "{F5BFE7B0-DFEA-39DA-61BE-37B5D5FD5036}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{31A5C312-EEE7-4F95-1A45-A33CFF6337BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31A5C312-EEE7-4F95-1A45-A33CFF6337BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31A5C312-EEE7-4F95-1A45-A33CFF6337BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31A5C312-EEE7-4F95-1A45-A33CFF6337BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5BFE7B0-DFEA-39DA-61BE-37B5D5FD5036}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5BFE7B0-DFEA-39DA-61BE-37B5D5FD5036}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5BFE7B0-DFEA-39DA-61BE-37B5D5FD5036}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5BFE7B0-DFEA-39DA-61BE-37B5D5FD5036}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {761645C4-4C32-486E-AC1A-74170B5DBB16}
+	EndGlobalSection
+EndGlobal
